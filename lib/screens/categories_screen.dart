@@ -4,6 +4,7 @@ import '../services/api_service.dart';
 import '../widgets/category_card.dart';
 import 'meals_by_category_screen.dart';
 import 'meal_detail_screen.dart';
+import 'favorites_screen.dart';
 
 class CategoriesScreen extends StatefulWidget {
   const CategoriesScreen({super.key});
@@ -59,6 +60,16 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
       appBar: AppBar(
         title: const Text('Категории'),
         actions: [
+          IconButton(
+            tooltip: 'Омилени рецепти',
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (_) => const FavoritesScreen()),
+              );
+            },
+            icon: const Icon(Icons.favorite),
+          ),
           IconButton(
             tooltip: 'Random рецепт на денот',
             onPressed: _openRandom,
